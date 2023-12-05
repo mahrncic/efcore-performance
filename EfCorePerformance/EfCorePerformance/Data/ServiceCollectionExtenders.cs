@@ -13,6 +13,15 @@ public static class ServiceCollectionExtenders
         services.AddDbContext<CompanyDbContext>(options =>
         {
             options.UseNpgsql(connectionString);
+            // options.UseNpgsql(connectionString, options =>
+            // {
+            //     options.EnableRetryOnFailure(
+            //         maxRetryCount: 5,
+            //         maxRetryDelay: TimeSpan.FromSeconds(2),
+            //         errorCodesToAdd: new string [] {});
+            // });
+
+            // options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         });
 
         return services;
