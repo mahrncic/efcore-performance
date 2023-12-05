@@ -19,6 +19,8 @@ public static class ServiceCollectionExtenders
             //         maxRetryCount: 5,
             //         maxRetryDelay: TimeSpan.FromSeconds(2),
             //         errorCodesToAdd: new string [] {});
+            //
+            //     options.MaxBatchSize(1);
             // });
 
             // options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);

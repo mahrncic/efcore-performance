@@ -38,10 +38,10 @@ public sealed class CompanyDbContext : DbContext
             .RuleFor(e => e.LastName, f => f.Name.LastName())
             .RuleFor(e => e.Age, f => f.Random.Int(20, 60))
             .RuleFor(e => e.Role, f => f.Name.JobTitle())
-            .RuleFor(e => e.CompanyId, f => f.Random.Int(1, 10_000));
+            .RuleFor(e => e.CompanyId, f => f.Random.Int(1, 1500));
         
-        var companies = companyGenerator.Generate(10_000);
-        var employees = employeeGenerator.Generate(70_000);
+        var companies = companyGenerator.Generate(1500);
+        var employees = employeeGenerator.Generate(10_000);
 
         modelBuilder.Entity<Company>().HasData(companies);
         modelBuilder.Entity<Employee>().HasData(employees);
