@@ -1,6 +1,6 @@
-﻿namespace EfCorePerformance.Data;
+﻿namespace EfCorePerformance.Console.Data;
 
-public sealed class Company
+public class Company
 {
     public int Id { get; set; }
     public string Name { get; set; } = default!;

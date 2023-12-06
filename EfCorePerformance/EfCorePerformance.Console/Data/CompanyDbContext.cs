@@ -2,9 +2,9 @@
 using Bogus;
 using Microsoft.EntityFrameworkCore;
 
-namespace EfCorePerformance.Data;
+namespace EfCorePerformance.Console.Data;
 
-public sealed class CompanyDbContext : DbContext
+public class CompanyDbContext : DbContext
 {
     public DbSet<Company> Companies { get; set; } = default!;
     public DbSet<Employee> Employees { get; set; } = null!;
@@ -21,12 +21,10 @@ public sealed class CompanyDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        SeedData(modelBuilder);
-        
         base.OnModelCreating(modelBuilder);
     }
     
-    private void SeedData(ModelBuilder modelBuilder)
+    public void SeedData()
     {
         var companyGenerator = new Faker<Company>()
             .RuleFor(c => c.Id, f => f.IndexFaker + 1)
@@ -43,7 +41,7 @@ public sealed class CompanyDbContext : DbContext
         var companies = companyGenerator.Generate(1500);
         var employees = employeeGenerator.Generate(10_000);
 
-        modelBuilder.Entity<Company>().HasData(companies);
-        modelBuilder.Entity<Employee>().HasData(employees);
+        Companies.AddRange(companies);
+        Employees.AddRange(employees);
     }
 }

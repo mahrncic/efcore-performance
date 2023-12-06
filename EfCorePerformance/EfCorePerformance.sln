@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCorePerformance", "EfCorePerformance\EfCorePerformance.csproj", "{F16E2AFA-3F68-43F2-861F-BB2E749D6238}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCorePerformance.Console", "EfCorePerformance.Console\EfCorePerformance.Console.csproj", "{3ACE1D73-DEDB-42F5-A757-0DEA95EEF403}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F16E2AFA-3F68-43F2-861F-BB2E749D6238}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F16E2AFA-3F68-43F2-861F-BB2E749D6238}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F16E2AFA-3F68-43F2-861F-BB2E749D6238}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F16E2AFA-3F68-43F2-861F-BB2E749D6238}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ACE1D73-DEDB-42F5-A757-0DEA95EEF403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ACE1D73-DEDB-42F5-A757-0DEA95EEF403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ACE1D73-DEDB-42F5-A757-0DEA95EEF403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ACE1D73-DEDB-42F5-A757-0DEA95EEF403}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
