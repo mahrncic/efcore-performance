@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using Bogus;
+﻿using Bogus;
 using Microsoft.EntityFrameworkCore;
 
 namespace EfCorePerformance.Console.Data;
@@ -16,12 +15,6 @@ public class CompanyDbContext : DbContext
     public CompanyDbContext(DbContextOptions options)
         : base(options)
     {
-    }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        base.OnModelCreating(modelBuilder);
     }
     
     public void SeedData()

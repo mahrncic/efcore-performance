@@ -46,7 +46,7 @@ public class DbContextPooling
         using var context = new CompanyDbContext(_options);
 
         return context.Companies
-            .Take(100)
+            .Take(10)
             .Include(x => x.Employees)
             .ToList();    }
 
@@ -56,7 +56,7 @@ public class DbContextPooling
         using var context = _poolingFactory.CreateDbContext();
 
         return context.Companies
-            .Take(100)
+            .Take(10)
             .Include(x => x.Employees)
             .ToList();
     }
