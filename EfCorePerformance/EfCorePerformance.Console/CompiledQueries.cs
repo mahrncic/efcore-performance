@@ -7,8 +7,8 @@ namespace EfCorePerformance.Console;
 [MemoryDiagnoser]
 public class CompiledQueries
 {
-    private static readonly Func<CompanyDbContext, IAsyncEnumerable<Company>> _compiledQuery
-        = EF.CompileAsyncQuery((CompanyDbContext context) => context.Companies.Where(c => c.Name.Length > 10));
+    private static readonly Func<CompanyDbContext, int, IAsyncEnumerable<Company>> _compiledQuery
+        = EF.CompileAsyncQuery((CompanyDbContext context, int length) => context.Companies.Where(c => c.Name.Length > length));
 
     private CompanyDbContext _context;
     private DbContextOptions<CompanyDbContext> _options;
@@ -19,6 +19,7 @@ public class CompiledQueries
         var connString = "Host=localhost;Port=5432;Username=postgres;Password=postgres;Database=companies";
         _options = new DbContextOptionsBuilder<CompanyDbContext>()
             .UseNpgsql(connString)
+            //.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
             .Options;
 
         _context = new CompanyDbContext(_options);
@@ -32,7 +33,7 @@ public class CompiledQueries
     {
         var idSum = 0;
 
-        await foreach (var company in _compiledQuery(_context))
+        await foreach (var company in _compiledQuery(_context, 10))
         {
             idSum += company.Id;
         }

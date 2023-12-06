@@ -18,19 +18,6 @@ public class DbContextPooling
         _options = new DbContextOptionsBuilder<CompanyDbContext>()
             .UseNpgsql(connString)
             .Options;
-        
-        // _options = new DbContextOptionsBuilder<CompanyDbContext>()
-        //     .UseNpgsql(connString, options =>
-        //     {
-        //         options.EnableRetryOnFailure(
-        //             maxRetryCount: 5,
-        //             maxRetryDelay: TimeSpan.FromSeconds(2),
-        //             errorCodesToAdd: new string [] {});
-        //
-        //         options.MaxBatchSize(1);
-        //     })
-        //     .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
-        //     .Options;
 
         using var context = new CompanyDbContext(_options);
         context.Database.EnsureDeleted();
